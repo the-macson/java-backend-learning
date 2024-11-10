@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <!-- scope have 2 type singleton and prototype,  In singleton object is created when container is loaded
+        but in prototype object is created when call to getBean
+         <bean id="alien" class="org.example.Alien" scope="prototype">
+     -->
+    <bean id="alien" class="org.example.Alien" autowire="byType">
+        <!-- <property name="age" value="21">
+        </property> -->
+<!--        <constructor-arg value="23" type="int"  name="age" />-->
+<!--        <constructor-arg ref="laptop" type="org.example.Laptop" name="laptop" />-->
+        <!-- <property name="laptop" ref="laptop">
+        </property> -->
+        <property name="age" value="23" />
+<!--        <property name="comp" ref="desktop" />-->
+    </bean>
+    <bean id="comp" class="org.example.Laptop" primary="true">
+
+    </bean>
+    <bean id="desktop" class="org.example.Desktop" lazy-init="true"/>
+</beans>
